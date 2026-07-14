@@ -3,146 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorpresa Raquel</title>
+    <title>Sorpresa Especial</title>
     <style>
-        /* Variables igual al diseño */
         :root {
-            --letter: #0a0a1a;
-            --letra: #ff2244;
+            --letter: #050510;
+            --letra: #ff2b4a;
             --letter-love: 100vh;
-            --fuente: "Te Amo", cursive;
         }
-        * { margin:0; padding:0; box-sizing:border-box; font-family:var(--fuente); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             background: var(--letter);
             min-height: 100vh;
             overflow: hidden;
-            color: var(--letra);
+            font-family: sans-serif;
         }
 
-        /* PANTALLA DE INICIO */
-        #intro-screen {
+        /* PANTALLA DE INICIO IGUAL A SU ESTILO */
+        #inicio {
             position: fixed;
-            top:0; left:0;
-            width:100%; height:100vh;
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            justify-content:center;
-            background: radial-gradient(circle at center, #220510 0%, var(--letter) 70%);
-            z-index:999;
-            cursor:pointer;
-            transition: opacity 0.8s ease;
+            top: 0; left: 0;
+            width: 100%; height: 100vh;
+            background: radial-gradient(circle, #1a0510 0%, var(--letter) 70%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            cursor: pointer;
+            transition: opacity 0.7s ease;
         }
-        #intro-screen h1 {
-            font-size: 1.8rem;
+        #inicio h1 {
+            color: var(--letra);
+            font-size: 1.7rem;
             text-shadow: 0 0 12px var(--letra), 0 0 25px var(--letra);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
-        .intro-img {
-            display:flex;
-            align-items:center;
-            gap:12px;
-        }
-        .intro-img img {
-            width: 90px;
+        .imagen-centro {
+            width: 140px;
             height: auto;
-            filter: drop-shadow(0 0 8px var(--letra));
-        }
-        .corazon {
-            font-size: 1.5rem;
-            animation: latido 1s infinite;
-        }
-        @keyframes latido {
-            0%,100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+            filter: drop-shadow(0 0 10px var(--letra));
         }
 
-        /* PANTALLA PRINCIPAL DE SORPRESA */
+        /* LA CLASE PRINCIPAL .Para_Ti QUE MUESTRA EN SU VIDEO */
         .Para_Ti {
             position: absolute;
             width: 90%;
-            left: 50%;
             top: 50%;
-            transform: translate(-50%, -50%);
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
             height: var(--letter-love);
             background: var(--letter);
-            padding: 30px 15px;
+            padding: 40px 20px;
             text-align: center;
+            color: var(--letra);
         }
-        .fondo-corazones {
+
+        /* FONDO Y DECORACIÓN DE CORAZONES */
+        .fondo-luces {
             position: fixed;
-            width:100%; height:100%;
-            top:0; left:0;
+            width: 100%; height: 100%;
+            top: 0; left: 0;
             background-image: radial-gradient(circle, var(--letra) 1px, transparent 1px);
-            background-size: 40px 40px;
-            opacity: 0.15;
-            animation: moverFondo 20s linear infinite;
-        }
-        @keyframes moverFondo {
-            0% { background-position: 0 0; }
-            100% { background-position: 100px 100px; }
+            background-size: 35px 35px;
+            opacity: 0.12;
         }
         h2 {
             font-size: 2.2rem;
             text-shadow: 0 0 15px var(--letra);
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
-        .mensaje {
-            font-size: 1.4rem;
-            margin: 18px 0;
-            text-shadow: 0 0 5px var(--letra);
+        .mensaje-linea {
+            font-size: 1.3rem;
+            margin: 15px 0;
+            text-shadow: 0 0 6px var(--letra);
         }
-        .img-decoracion {
+        .img-flotante {
             position: absolute;
-            width: 60px;
+            width: 55px;
         }
-        .hk1 { top: 12%; left: 8%; }
-        .sp1 { top: 12%; right: 8%; }
-        .hk2 { bottom: 12%; left: 10%; }
-        .sp2 { bottom: 12%; right: 10%; }
     </style>
 </head>
 <body>
 
-<!-- PANTALLA DE INICIO -->
-<div id="intro-screen">
-    <h1>Toca para iniciar tu sorpresa ❤️</h1>
-    <div class="intro-img">
-        <span class="corazon">❤️</span>
-        <img src="hellokitty.png" alt="Hello Kitty">
-        <span class="corazon">❤️</span>
-        <img src="spiderman.png" alt="Spider-Man">
-        <span class="corazon">❤️</span>
-    </div>
+<!-- PANTALLA INICIO -->
+<div id="inicio">
+    <h1>Toca para iniciar tu sorpresa</h1>
+    <!-- Aquí pones tu imagen combinada o las dos -->
+    <img src="hellokitty.png" class="imagen-centro" alt="Imagen especial">
 </div>
 
-<!-- PANTALLA DE SORPRESA -->
-<div class="fondo-corazones"></div>
+<!-- CONTENIDO PRINCIPAL -->
+<div class="fondo-luces"></div>
 <div class="Para_Ti">
-    <h2>¡Sorpresa Raquel! 🎉</h2>
-    <p class="mensaje">¡Feliz cumpleaños! 🎂</p>
-    <p class="mensaje">Que la pases genial hoy ✨</p>
-    <p class="mensaje">Te quiero muchísimo 🫶</p>
-    <p class="mensaje">Eres lo mejor del mundo 🌍</p>
-    <p class="mensaje">Eres la mejor amiga que existe 💖</p>
-    <p class="mensaje">¡Qué genial eres! 😎</p>
-    <p class="mensaje">Feliz día, peliona 😜</p>
-    <p class="mensaje">I love you so much, peliona 🇦🇷❤️</p>
+    <h2>¡FELIZ CUMPLEAÑOS!</h2>
+    <p class="mensaje-linea">Que la pases genial 🎉</p>
+    <p class="mensaje-linea">Te quiero muchísimo ❤️</p>
+    <p class="mensaje-linea">Eres lo mejor 🫶</p>
 
-    <!-- Imágenes decorativas flotando -->
-    <img src="hellokitty.png" class="img-decoracion hk1" alt="">
-    <img src="spiderman.png" class="img-decoracion sp1" alt="">
-    <img src="hellokitty.png" class="img-decoracion hk2" alt="">
-    <img src="spiderman.png" class="img-decoracion sp2" alt="">
+    <!-- Imágenes flotando en los bordes -->
+    <img src="spiderman.png" class="img-flotante" style="top:10%; left:5%;" alt="">
+    <img src="hellokitty.png" class="img-flotante" style="top:10%; right:5%;" alt="">
+    <img src="spiderman.png" class="img-flotante" style="bottom:10%; left:5%;" alt="">
+    <img src="hellokitty.png" class="img-flotante" style="bottom:10%; right:5%;" alt="">
 </div>
 
 <script>
-// Ocultar intro al tocar
-const intro = document.getElementById('intro-screen');
-intro.addEventListener('click', () => {
-    intro.style.opacity = '0';
-    setTimeout(() => intro.style.display = 'none', 800);
+// Al tocar se quita la pantalla de inicio
+document.getElementById('inicio').addEventListener('click', () => {
+    document.getElementById('inicio').style.opacity = '0';
+    setTimeout(() => document.getElementById('inicio').style.display = 'none', 700);
 });
 </script>
 
