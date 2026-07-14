@@ -3,98 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorpresa para Raquel</title>
+    <title>Feliz Cumpleaños Raquel</title>
     <style>
-        body {
+        body, html {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            padding: 0;
+            height: 100%;
             overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+            color: #fff;
         }
-        #introScreen {
-            position: fixed;
+
+        #stars {
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #000;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            cursor: pointer;
-            transition: opacity 0.5s ease;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
+
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100px) scale(1); opacity: 0; }
         }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+
+        .floating {
+            position: absolute;
+            z-index: 2;
+            animation: float 6s infinite ease-in;
+            color: #ffcc00;
+            font-weight: bold;
         }
-        #introScreen img {
-            animation: float 3s ease-in-out infinite;
-            margin: 10px;
-            max-width: 150px;
+
+        .floating img {
+            width: 50px;
+            height: auto;
         }
-        .heart {
-            color: #ff4d4d;
-            font-size: 30px;
-            animation: pulse 1.5s infinite;
-            margin: 5px;
-        }
-        #mainContent {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+
+        #center-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
             text-align: center;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 0 0 20px #ff007f, 0 0 40px #7f00ff;
+            animation: pulse 2s infinite alternate;
         }
-        .message {
-            margin: 15px 0;
-            font-size: 24px;
-            color: #333;
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); }
+            100% { transform: translate(-50%, -50%) scale(1.1); }
         }
     </style>
 </head>
 <body>
 
-    <div id="introScreen">
-        <h1>Toca para iniciar tu sorpresa</h1>
-        <div>
-            <span class="heart">❤</span>
-            <img src="hellokitty.png" alt="Hello Kitty" />
-            <span class="heart">❤</span>
-            <img src="spiderman.png" alt="Spider-Man" />
-            <span class="heart">❤</span>
-        </div>
-    </div>
+    <div id="stars"></div>
 
-    <div id="mainContent">
-        <h1>¡Sorpresa!</h1>
-        <div class="message">Happy birthday!</div>
-        <div class="message">Que la pases genial</div>
-        <div class="message">Te quiero mucho</div>
-        <div class="message">Eres lo mejor del mundo</div>
-        <div class="message">Eres la mejor amiga</div>
-        <div class="message">Qué cool</div>
-        <div class="message">Feliz día, peliona</div>
-        <div class="message">I love you, peliona</div>
+    <div id="center-message">
+        ¡Feliz cumpleaños!
     </div>
 
     <script>
-        document.getElementById('introScreen').addEventListener('click', function() {
-            this.style.opacity = 0;
-            setTimeout(() => {
-                this.style.display = 'none';
-            }, 500);
-        });
+        const words = ["Amor", "Alegría", "Éxito", "Salud", "Paz"];
+        const images = ["hellokitty.png", "spiderman.png"]; // Asegúrate de tener los nombres correctos
+
+        function createFloatingElement() {
+            const container = document.getElementById('stars');
+            const div = document.createElement('div');
+            div.className = 'floating';
+            div.style.left = Math.random() * 100 + '%';
+            
+            if (Math.random() > 0.5) {
+                div.innerText = words[Math.floor(Math.random() * words.length)];
+                div.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            } else {
+                const img = document.createElement('img');
+                img.src = images[Math.floor(Math.random() * images.length)];
+                div.appendChild(img);
+            }
+
+            container.appendChild(div);
+
+            div.addEventListener('animationend', () => {
+                div.remove();
+            });
+        }
+
+        setInterval(createFloatingElement, 800);
     </script>
 </body>
 </html>
