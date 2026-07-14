@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorpresa para Raquel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+        #introScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.5s ease;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        #introScreen img {
+            animation: float 3s ease-in-out infinite;
+            margin: 10px;
+            max-width: 150px;
+        }
+        .heart {
+            color: #ff4d4d;
+            font-size: 30px;
+            animation: pulse 1.5s infinite;
+            margin: 5px;
+        }
+        #mainContent {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .message {
+            margin: 15px 0;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="introScreen">
+        <h1>Toca para iniciar tu sorpresa</h1>
+        <div>
+            <span class="heart">❤</span>
+            <img src="hellokitty.png" alt="Hello Kitty" />
+            <span class="heart">❤</span>
+            <img src="spiderman.png" alt="Spider-Man" />
+            <span class="heart">❤</span>
+        </div>
+    </div>
+
+    <div id="mainContent">
+        <h1>¡Sorpresa!</h1>
+        <div class="message">Happy birthday!</div>
+        <div class="message">Que la pases genial</div>
+        <div class="message">Te quiero mucho</div>
+        <div class="message">Eres lo mejor del mundo</div>
+        <div class="message">Eres la mejor amiga</div>
+        <div class="message">Qué cool</div>
+        <div class="message">Feliz día, peliona</div>
+        <div class="message">I love you, peliona</div>
+    </div>
+
+    <script>
+        document.getElementById('introScreen').addEventListener('click', function() {
+            this.style.opacity = 0;
+            setTimeout(() => {
+                this.style.display = 'none';
+            }, 500);
+        });
+    </script>
+</body>
+</html>
