@@ -3,108 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorpresa para Raquel 🎁</title>
+    <title>Sorpresa Raquel</title>
     <style>
+        /* Variables igual al diseño */
+        :root {
+            --letter: #0a0a1a;
+            --letra: #ff2244;
+            --letter-love: 100vh;
+            --fuente: "Te Amo", cursive;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; font-family:var(--fuente); }
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #fce4ec; /* Fondo más tierno, acorde al tema */
-            overflow: hidden;
-        }
-        #introScreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #1a1a2e;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            cursor: pointer;
-            transition: opacity 0.5s ease;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
-            100% { transform: translateY(0px); }
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
-        #introScreen img {
-            animation: float 3s ease-in-out infinite;
-            margin: 10px;
-            max-width: 140px;
-            border-radius: 12px;
-        }
-        .heart {
-            color: #ff4d6d;
-            font-size: 32px;
-            animation: pulse 1.5s infinite;
-            margin: 5px;
-        }
-        #mainContent {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: var(--letter);
             min-height: 100vh;
-            text-align: center;
-            padding: 20px;
+            overflow: hidden;
+            color: var(--letra);
         }
-        .message {
-            margin: 12px 0;
-            font-size: 22px;
-            color: #5c0011;
-            font-weight: 500;
+
+        /* PANTALLA DE INICIO */
+        #intro-screen {
+            position: fixed;
+            top:0; left:0;
+            width:100%; height:100vh;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            background: radial-gradient(circle at center, #220510 0%, var(--letter) 70%);
+            z-index:999;
+            cursor:pointer;
+            transition: opacity 0.8s ease;
         }
-        h1 {
-            color: #c9184a;
-            font-size: 42px;
+        #intro-screen h1 {
+            font-size: 1.8rem;
+            text-shadow: 0 0 12px var(--letra), 0 0 25px var(--letra);
             margin-bottom: 25px;
         }
+        .intro-img {
+            display:flex;
+            align-items:center;
+            gap:12px;
+        }
+        .intro-img img {
+            width: 90px;
+            height: auto;
+            filter: drop-shadow(0 0 8px var(--letra));
+        }
+        .corazon {
+            font-size: 1.5rem;
+            animation: latido 1s infinite;
+        }
+        @keyframes latido {
+            0%,100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        /* PANTALLA PRINCIPAL DE SORPRESA */
+        .Para_Ti {
+            position: absolute;
+            width: 90%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            height: var(--letter-love);
+            background: var(--letter);
+            padding: 30px 15px;
+            text-align: center;
+        }
+        .fondo-corazones {
+            position: fixed;
+            width:100%; height:100%;
+            top:0; left:0;
+            background-image: radial-gradient(circle, var(--letra) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.15;
+            animation: moverFondo 20s linear infinite;
+        }
+        @keyframes moverFondo {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+        h2 {
+            font-size: 2.2rem;
+            text-shadow: 0 0 15px var(--letra);
+            margin-bottom: 35px;
+        }
+        .mensaje {
+            font-size: 1.4rem;
+            margin: 18px 0;
+            text-shadow: 0 0 5px var(--letra);
+        }
+        .img-decoracion {
+            position: absolute;
+            width: 60px;
+        }
+        .hk1 { top: 12%; left: 8%; }
+        .sp1 { top: 12%; right: 8%; }
+        .hk2 { bottom: 12%; left: 10%; }
+        .sp2 { bottom: 12%; right: 10%; }
     </style>
 </head>
 <body>
 
-    <div id="introScreen">
-        <h1>Toca para iniciar tu sorpresa ❤️‍🩹</h1>
-        <div>
-            <span class="heart">❤</span>
-            <!-- AQUÍ VAN TUS IMÁGENES, NÓMBRALAS IGUAL QUE AQUÍ -->
-            <img src="hellokitty.png" alt="Hello Kitty" />
-            <span class="heart">❤</span>
-            <img src="spiderman.png" alt="Spider-Man" />
-            <span class="heart">❤</span>
-        </div>
+<!-- PANTALLA DE INICIO -->
+<div id="intro-screen">
+    <h1>Toca para iniciar tu sorpresa ❤️</h1>
+    <div class="intro-img">
+        <span class="corazon">❤️</span>
+        <img src="hellokitty.png" alt="Hello Kitty">
+        <span class="corazon">❤️</span>
+        <img src="spiderman.png" alt="Spider-Man">
+        <span class="corazon">❤️</span>
     </div>
+</div>
 
-    <div id="mainContent">
-        <h1>¡Sorpresa Raquel! 🎉</h1>
-        <div class="message">¡Feliz cumpleaños! 🎂</div>
-        <div class="message">Que la pases genial hoy ✨</div>
-        <div class="message">Te quiero muchísimo 🫶</div>
-        <div class="message">Eres lo mejor del mundo 🌎</div>
-        <div class="message">Eres la mejor amiga que existe 💖</div>
-        <div class="message">¡Qué genial eres! 😎</div>
-        <div class="message">Feliz día, peliona 😜</div>
-        <div class="message">I love you so much, peliona ❤️‍🩹</div>
-    </div>
+<!-- PANTALLA DE SORPRESA -->
+<div class="fondo-corazones"></div>
+<div class="Para_Ti">
+    <h2>¡Sorpresa Raquel! 🎉</h2>
+    <p class="mensaje">¡Feliz cumpleaños! 🎂</p>
+    <p class="mensaje">Que la pases genial hoy ✨</p>
+    <p class="mensaje">Te quiero muchísimo 🫶</p>
+    <p class="mensaje">Eres lo mejor del mundo 🌍</p>
+    <p class="mensaje">Eres la mejor amiga que existe 💖</p>
+    <p class="mensaje">¡Qué genial eres! 😎</p>
+    <p class="mensaje">Feliz día, peliona 😜</p>
+    <p class="mensaje">I love you so much, peliona 🇦🇷❤️‍🩹</p>
 
-    <script>
-        document.getElementById('introScreen').addEventListener('click', function() {
-            this.style.opacity = 0;
-            setTimeout(() => {
-                this.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }, 500);
-        });
-    </script>
+    <!-- Imágenes decorativas flotando -->
+    <img src="hellokitty.png" class="img-decoracion hk1" alt="">
+    <img src="spiderman.png" class="img-decoracion sp1" alt="">
+    <img src="hellokitty.png" class="img-decoracion hk2" alt="">
+    <img src="spiderman.png" class="img-decoracion sp2" alt="">
+</div>
+
+<script>
+// Ocultar intro al tocar
+const intro = document.getElementById('intro-screen');
+intro.addEventListener('click', () => {
+    intro.style.opacity = '0';
+    setTimeout(() => intro.style.display = 'none', 800);
+});
+</script>
+
 </body>
 </html>
