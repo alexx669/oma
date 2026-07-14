@@ -22,7 +22,7 @@
             font-family: sans-serif;
         }
 
-        /* PANTALLA DE INICIO IGUAL A SU ESTILO */
+        /* PANTALLA DE INICIO EXACTA */
         #inicio {
             position: fixed;
             top: 0; left: 0;
@@ -48,7 +48,7 @@
             filter: drop-shadow(0 0 10px var(--letra));
         }
 
-        /* LA CLASE PRINCIPAL .Para_Ti QUE MUESTRA EN SU VIDEO */
+        /* CLASE PRINCIPAL .Para_Ti IGUAL A SU ESTRUCTURA */
         .Para_Ti {
             position: absolute;
             width: 90%;
@@ -62,7 +62,7 @@
             color: var(--letra);
         }
 
-        /* FONDO Y DECORACIÓN DE CORAZONES */
+        /* FONDO DE LUCES/CORAZONES PEQUEÑOS */
         .fondo-luces {
             position: fixed;
             width: 100%; height: 100%;
@@ -92,7 +92,6 @@
 <!-- PANTALLA INICIO -->
 <div id="inicio">
     <h1>Toca para iniciar tu sorpresa</h1>
-    <!-- Aquí pones tu imagen combinada o las dos -->
     <img src="hellokitty.png" class="imagen-centro" alt="Imagen especial">
 </div>
 
@@ -104,7 +103,7 @@
     <p class="mensaje-linea">Te quiero muchísimo ❤️</p>
     <p class="mensaje-linea">Eres lo mejor 🫶</p>
 
-    <!-- Imágenes flotando en los bordes -->
+    <!-- Imágenes flotando en bordes -->
     <img src="spiderman.png" class="img-flotante" style="top:10%; left:5%;" alt="">
     <img src="hellokitty.png" class="img-flotante" style="top:10%; right:5%;" alt="">
     <img src="spiderman.png" class="img-flotante" style="bottom:10%; left:5%;" alt="">
@@ -112,7 +111,7 @@
 </div>
 
 <script>
-// Al tocar se quita la pantalla de inicio
+// AL TOCAR SE QUITA LA PANTALLA DE INICIO SUAVEMENTE
 document.getElementById('inicio').addEventListener('click', () => {
     document.getElementById('inicio').style.opacity = '0';
     setTimeout(() => document.getElementById('inicio').style.display = 'none', 700);
